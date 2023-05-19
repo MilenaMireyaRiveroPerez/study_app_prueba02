@@ -12,7 +12,7 @@
     "contenido",
     "semestres"
   ],
-  "author": "Gabriela Ortega",
+  "author": "Milena Rivero",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",

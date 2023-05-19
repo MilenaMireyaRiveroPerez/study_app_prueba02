@@ -15,7 +15,7 @@ export class UserListPage implements OnInit {
   resDelete = '';
   private platform = inject(Platform);
   isAlertOpen = false;
-  public alertButtons = ['Aceptar', 'Cancelar'];
+  public alertButtons = ['Confirmar ', 'Cancelar'];
 
   constructor(
     private toastController: ToastController,
@@ -31,10 +31,10 @@ export class UserListPage implements OnInit {
   async confirmDelete(id: string) {
     const alert = await this.alertController.create({
       header: 'Mensaje',
-      message: 'Desea eliminar el registro?',
+      message: 'Desea eliminar al usuario?',
       buttons: [
         {
-          text: 'Aceptar',
+          text: 'Confirmar ',
           handler: () => {
             this.deleteUser(id);
           },
