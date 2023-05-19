@@ -2,8 +2,9 @@ const { sequelize } = require("../../connection");
 const { ThemesModel } = require("../../model/themes.model");
 const themesService = require("../../service/themes.service");
 
+//////listar temas
 const listar = async function (req, res) {
-  console.log("listar temas controller");
+  console.log("Listar temas controller");
   try {
     const themes = await themesService.listar(req.query.filtro || "");
     if (themes) {
@@ -26,6 +27,7 @@ const listar = async function (req, res) {
   }
 };
 
+////consultar por codigo - temas 
 const consultarPorCodigo = async function (req, res) {
   console.log("consultar 1 tema por codigo controller");
   try {
@@ -52,8 +54,9 @@ const consultarPorCodigo = async function (req, res) {
   }
 };
 
+////////////actualizar-modificar temas 
 const actualizar = async function (req, res) {
-  console.log("actualizar temas controller");
+  console.log("Actualizar-modificar temas controller");
   let themesReturn = null;
   try {
     themesReturn = await themesService.actualizar(
@@ -77,8 +80,9 @@ const actualizar = async function (req, res) {
   }
 };
 
+///eliminar temas 
 const eliminar = async function (req, res) {
-  console.log("eliminar temas controller");
+  console.log("Eliminar temas controller");
   try {
     await themesService.eliminar(req.params.filtro || "");
     res.json({
@@ -93,9 +97,5 @@ const eliminar = async function (req, res) {
   }
 };
 
-module.exports = {
-  listar,
-  busquedaPorCodigo: consultarPorCodigo,
-  actualizar,
-  eliminar,
+module.exports = {listar, busquedaPorCodigo: consultarPorCodigo, actualizar, eliminar,
 };

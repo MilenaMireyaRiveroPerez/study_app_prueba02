@@ -3,6 +3,9 @@ import { RefresherCustomEvent } from '@ionic/angular';
 import { DataService, Message } from '../services/data.service';
 import axios from 'axios';
 
+import { MessageComponent } from '../message/message.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,6 +14,8 @@ import axios from 'axios';
 export class HomePage implements OnInit {
   private data = inject(DataService);
   temas: any = [];
+  router: any;
+  //usuarios : any = [];
 
   constructor() {}
 
@@ -27,12 +32,26 @@ export class HomePage implements OnInit {
   ionViewWillEnter(): void {
     this.getThemes();
   }
+/////
 
-  ngOnInit(): void {}
 
+////
+  ngOnInit(): void {
+
+  }
+  
+  getUsers () {
+    let token = localStorage.getItem("token");
+
+    let config ={
+      headers : {
+      "Authorization" : token
+    }
+    }
+    
+  }
   getThemes() {
-    axios
-      .get('http://localhost:3000/themes/list')
+    axios.get('http://localhost:3000/themes/list')
       .then((result) => {
         if (result.data.success == true) {
           this.temas = result.data.temas;
