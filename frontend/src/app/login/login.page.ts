@@ -22,7 +22,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    //this.message = this.data.getMessageById(parseInt(id, 10));
     axios.get("http://localhost:3000/user/" + id)
     .then( result => {
       if (result.data.success == true) {
@@ -43,7 +42,6 @@ export class LoginPage implements OnInit {
   }
 
   ionViewWillEnter(): void {
-    // verificar si es que mi el usuario esta logeado
     let token = localStorage.getItem("token");
 
     localStorage.removeItem("token");
@@ -55,18 +53,13 @@ export class LoginPage implements OnInit {
   getBackButtonText() {
     const isIos = this.platform.is('ios')
     return isIos ? 'Inbox' : '';
-    
-
-    
   }
 
   loginUser(){
     console.log("usuario", this.usuario);
     var data = {
-     
       email: this.usuario.email,
       password: this.usuario.password
-
     }
 
     axios.post("http://localhost:3000/user/login" , data)

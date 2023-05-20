@@ -78,7 +78,6 @@ const actualizar = async function (
 const eliminar = async function (codigo) {
   console.log("eliminar topicos");
   try {
-    //pide tb poner topic_id (??)
     TopicsModel.destroy(
       { where: { id: codigo, topic_id: codigo } },
       { truncate: false }

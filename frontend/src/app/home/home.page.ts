@@ -29,7 +29,6 @@ export class HomePage implements OnInit {
   }
 
   ionViewWillEnter(): void {
-    // verificar si es que mi el usuario no esta logeado
     let token = localStorage.getItem("token");
     if(!token){
       this.router.navigate(["/login"]);

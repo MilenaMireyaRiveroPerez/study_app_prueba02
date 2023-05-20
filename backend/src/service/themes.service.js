@@ -45,8 +45,6 @@ const actualizar = async function (
 ) {
   console.log("actualizar temas");
   let themesReturn = null;
-  //const data = req.body;
-  //const id = req.body.id;
   const data = { id, create_date, name, description, keywords, owner_user_id };
   try {
     let themesExist = null;
@@ -70,7 +68,6 @@ const eliminar = async function (codigo) {
   console.log("eliminar temas");
   try {
     ThemesModel.destroy({ where: { id: codigo } }, { truncate: false });
-    // await sequelize.query("UPDATE themes SET deleted=true WHERE id= " + codigo);
   } catch (error) {
     console.log(error);
     throw error;
