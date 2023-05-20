@@ -46,7 +46,6 @@ const actualizar = async function (
   owner_user_id
 ) {
   console.log("actualizar topicos");
-
   let topicsReturn = null;
   const data = {
     id,
@@ -58,7 +57,6 @@ const actualizar = async function (
     color,
     owner_user_id,
   };
-
   try {
     let topicsExist = null;
     if (id) {

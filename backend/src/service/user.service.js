@@ -47,10 +47,8 @@ const actualizar = async function (
   deleted
 ) {
   console.log("actualizar usuarios");
-  //Variables
-  let userReturn = null; //guarda el user que se va a incluir o editar
-  //const data = req.body; //se obtiene los datos e la peticion
-  //const id = req.body.id;
+ 
+  let userReturn = null; 
   const data = { id, name, last_name, avatar, email, password, deleted };
 
   try {
@@ -82,7 +80,6 @@ const eliminar = async function (codigo) {
   }
 };
 
-//lo que esta entre la llave es json
 module.exports = {
   listar,
   busquedaPorCodigo: consultarPorCodigo,

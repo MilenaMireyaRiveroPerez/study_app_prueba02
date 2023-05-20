@@ -2,6 +2,7 @@ const { sequelize } = require("../../connection");
 const { TopicsModel } = require("../../model/topics.model");
 const topicsService = require("../../service/topics.service");
 
+///listar topicos 
 const listar = async function (req, res) {
   console.log("listar topicos controller");
   try {
@@ -26,6 +27,7 @@ const listar = async function (req, res) {
   }
 };
 
+///consultar topicos por codigo
 const consultarPorCodigo = async function (req, res) {
   console.log("consultar 1 topico por codigo controller");
   try {
@@ -52,11 +54,10 @@ const consultarPorCodigo = async function (req, res) {
   }
 };
 
+ ///actualizar topicos 
 const actualizar = async function (req, res) {
   console.log("actualizar topicos controller");
-
   let topicsReturn = null;
-
   try {
     topicsReturn = await topicsService.actualizar(
       req.body.id,
@@ -81,6 +82,7 @@ const actualizar = async function (req, res) {
   }
 };
 
+///eliminar topicos 
 const eliminar = async function (req, res) {
   console.log("eliminar topicos controller");
   try {
